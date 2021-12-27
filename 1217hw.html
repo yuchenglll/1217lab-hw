@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <style type="text/css">
+    .classb{
+        display: inline-block;
+        background-color: gray;
+        border-style: solid;
+        
+        width: 250pt;
+        height: 200pt;
+        padding-left: 20pt;
+    }
+    .button{display: inline-block;
+      text-align: center;
+      text-decoration: none;
+      outline: lightyellow; solid 3px;;
+      color: lightskyblue;
+      background-color:   #FFFFD4;
+      border-color:  #1CFFFF;
+    }
+    h1.em{ font-family:fantasy;
+  </style>
+</head>
+<body>
+
+  <script>
+        var correctnumber = Math.floor((Math.random()*10+1));
+        var result;
+        var right = 100;
+        var left = 0;
+
+        function count(){
+             var text1  = parseInt( document.getElementById('text1').value);//獲取第一個輸入框的值
+             if (text1==correctnumber) {alert("bingo!!!");
+               location.reload();
+                }else if(text1>correctnumber) {
+                  right = text1;
+                  var tr = document.createElement("tr");
+                  var td = document.createElement("document");
+                  var text = document.createTextNode(left + "~" + right);
+                  td.appendChild(text);
+                  tr.appendChild(td);
+                  document.getElementById("table").appendChild(tr);
+                }else if (text1<correctnumber){
+                  left = text1;
+                  var tr = document.createElement("tr");
+                  var td = document.createElement("document");
+                  var text = document.createTextNode(left + "~" + right);
+                  td.appendChild(text);
+                  tr.appendChild(td);
+                  document.getElementById("table").appendChild(tr);
+                }
+             document.getElementById('fruit').textContent= result;
+             //設定結果輸入框的值 
+           }
+  </script>
+   <center>
+    <div class="classb" style="background-color:#D3D3D3; text-align:left;">
+        <p class="theend" style="font-family:fantasy;" >Guessing Game</p>
+        <p style="font-family:fantasy; ">Your Guess(1 ~ 100)</p>
+        <input type='text' id='text1' style="width: 200pt;"> 
+      <p >
+        <button class="button" value="play" onclick="count()" style="width: 150pt;height: 30pt;">play
+        </button>
+      </p>
+      <div style="border-width: 3px; font-family:fantasy;" >Result </div> <table id="table" class="myTable"></table>
+    </div>
+ </center>
+
+
+
+</body>
+</html>
